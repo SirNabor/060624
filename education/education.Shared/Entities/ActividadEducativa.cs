@@ -4,18 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace education.Shared.Entities
 {
-    public class ProyectoEducativo
+    public class ActividadEducativa
     {
 
         public int Id { get; set; }
 
 
 
-        [Display(Name = "Nombre del proyecto")]
+        [Display(Name = "Nombre de la actividad evaluativa")]
 
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
@@ -25,7 +25,7 @@ namespace education.Shared.Entities
 
 
 
-        [Display(Name = "Descripcion del proyecto")]
+        [Display(Name = "Descripcion de l actividad evaluativa")]
 
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
@@ -34,6 +34,8 @@ namespace education.Shared.Entities
         public string Description { get; set; }
 
 
+
+        [Display(Name = "Fecha de inicio de la actividad evaluativa")]
 
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
 
@@ -45,6 +47,7 @@ namespace education.Shared.Entities
 
 
 
+        [Display(Name = "Fecha estamada de finalizacion de la actividad evaluativa")]
 
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
 
@@ -54,9 +57,7 @@ namespace education.Shared.Entities
 
         public string Estimatedate { get; set; }
 
-        public ActividadEducativa ActividadEducativa { get; set; }
-        public RecursoEducativo RecursoEducativo { get; set; }
+        public ProyectoEducativo ProyectoEducativo { get; set; }
         public GrupoEstudiantes GrupoEstudiantes { get; set; }
-
     }
 }

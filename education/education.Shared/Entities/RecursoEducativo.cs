@@ -4,18 +4,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace education.Shared.Entities
 {
-    public class ProyectoEducativo
+    public class RecursoEducativo
     {
-
         public int Id { get; set; }
 
 
 
-        [Display(Name = "Nombre del proyecto")]
+        [Display(Name = "Nombre del recurso educativo")]
 
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
@@ -25,38 +23,34 @@ namespace education.Shared.Entities
 
 
 
-        [Display(Name = "Descripcion del proyecto")]
+        [Display(Name = "Cantidad requerida del recurso educativo")]
 
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Description { get; set; }
+        public string RequiredQuantity { get; set; }
 
 
 
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
-
-        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-
-        public string Startdate { get; set; }
-
-
-
-
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Proveedor del recurso educativo")]
 
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Estimatedate { get; set; }
+        public string Supplier { get; set; }
 
-        public ActividadEducativa ActividadEducativa { get; set; }
-        public RecursoEducativo RecursoEducativo { get; set; }
-        public GrupoEstudiantes GrupoEstudiantes { get; set; }
+
+
+        [Display(Name = "Fecha de entrega estimada del recurso estimado")]
+
+        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+
+        public string EstimatedDeliveryDate { get; set; }
 
     }
+
 }

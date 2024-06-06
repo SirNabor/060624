@@ -4,36 +4,27 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace education.Shared.Entities
 {
-    public class ProyectoEducativo
+    public class Evaluacion
     {
 
         public int Id { get; set; }
 
 
 
-        [Display(Name = "Nombre del proyecto")]
+        [Display(Name = "Tipo de evaluacion")]
 
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Name { get; set; }
+        public string Type { get; set; }
 
 
 
-        [Display(Name = "Descripcion del proyecto")]
-
-        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-
-        public string Description { get; set; }
-
-
+        [Display(Name = "Fecha de evaluacion")]
 
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
 
@@ -41,22 +32,29 @@ namespace education.Shared.Entities
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Startdate { get; set; }
+        public string Date { get; set; }
 
 
 
-
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd HH:mm}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Calificación Maxima de la evaluación")]
 
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
 
-        public string Estimatedate { get; set; }
+        public string MaximumRating { get; set; }
 
-        public ActividadEducativa ActividadEducativa { get; set; }
-        public RecursoEducativo RecursoEducativo { get; set; }
+
+
+        [Display(Name = "Docente evaluador")]
+
+        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+
+        public string EvaluatorTeacher { get; set; }
+
+        public ProyectoEducativo ProyectoEducativo { get; set; }
         public GrupoEstudiantes GrupoEstudiantes { get; set; }
-
     }
 }
